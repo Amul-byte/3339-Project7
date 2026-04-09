@@ -30,3 +30,16 @@ Proposed File Structure:
     —TestMemory.asm               # focused LW/SW test
 
 —README.md                # build and run instructions
+
+### Contributions
+Samantha Hanna:
+- ALU.py
+- Control.py
+- Stages.py
+- Pipeline.py
+
+Vanny Bundick:
+
+Amul Poudel:
+
+John Parsons:
