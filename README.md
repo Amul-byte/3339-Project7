@@ -12,12 +12,12 @@ Proposed File Structure:
 │   ├── Instruction.py       # Instruction class + binary string representation
 │   ├── Decoder.py           # reads .asm file, parses into Instruction objects
 │   │
-│   ├── RegisterFile.py     # RegisterFile class
+│   ├── RegisterFile.py      # RegisterFile class
 │   ├── Memory.py            # Memory class
 │   │
 │   ├── ALU.py               # ALU class
 │   ├── Control.py           # ControlSignals class + signal generation logic
-│   ├── Latches.py           # IF_ID, ID_EX, EX_MEM, MEM_WB latch classes
+│   ├── Stages.py           # IF_ID, ID_EX, EX_MEM, MEM_WB MIPS stages
 │   ├── Pipeline.py          # Pipeline class — step(), run(), dump(), debug()
 │   │
 │   └── Output.py            # all formatting logic for dump and debug mode
