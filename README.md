@@ -39,6 +39,9 @@ Samantha Hanna:
 - Pipeline.py
 
 Vanny Bundick:
+- Decoder.py
+- RegisterFile.py
+- Output.py
 
 Amul Poudel:
 
