@@ -26,9 +26,9 @@ class ALU:
         elif alu_op == "OR":
             result = operand1 | operand2
         elif alu_op == "SLL":
-            result = _mask32(operand1) << shamt
+            result = _mask32(operand2) << shamt
         elif alu_op == "SRL":
-            result = _mask32(operand1) >> shamt
+            result = _mask32(operand2) >> shamt
         elif alu_op == "BEQ":
             result = _to_signed32(operand1) - _to_signed32(operand2)
         elif alu_op in {"J", "NOP"}:

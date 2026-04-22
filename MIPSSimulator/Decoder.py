@@ -1,9 +1,8 @@
 """
 Decoder for MIPS assembly into Instruction objects.
 
-This class reads an asm file, extracts labels, and converts each
-instruction into an Instruction object that the simulator is
-then able to execute.
+Reads an asm file, extracts labels, and converts each instruction into
+an Instruction object that the simulator is then able to execute.
 """
 
 from .Instruction import Instruction, parse_register
@@ -20,14 +19,11 @@ class Decoder:
     # First Pass: Collect Labels
     pc = 0                                    # program counter for instruction index
     for line in lines:
-      label, remainder = line.split(":")
-      label = label.strip()
-
-      self.labels[label] = pc                 # Store label to current address
-
-      if not remainder.strip():
-        continue
-
+      if ":" in line:
+        label, remainder = line.split(":", 1)
+        self.labels[label.strip()] = pc       # Store label to current address
+        if not remainder.strip():
+          continue
       pc += 1
 
     # Second Pass: Parse Instructions
@@ -35,7 +31,7 @@ class Decoder:
     for line in lines:
       if ":" in line:
         _, line = line.split(":")
-        line = line.strip()                   # Remove label if applicable
+        line = line.strip()                   # Remove labels if any
 
         if not line:
           continue
@@ -61,17 +57,11 @@ class Decoder:
     parts = line.replace(",", "").split()
     opcode = parts[0].upper()                 # Split into tokens
 
-  #------------------------
-  # NOP Instructions
-  #------------------------
+  # NOP Instruction
     if opcode == "NOP":
-      return Instruction(opcode="NOP, source=line")
-    
-    
-  #------------------------
-  # R-type Instructions
-  # Format : OP rd, rs, rt
-  #------------------------    
+      return Instruction(opcode="NOP", source=line)
+      
+  # R-type Instructions (format : OP rd, rs, rt)
     if opcode in {"ADD", "SUB", "MUL", "AND", "OR"}:
         rd = parse_register(parts[1])
         rs = parse_register(parts[2])  
@@ -85,10 +75,7 @@ class Decoder:
         shamt = int(parts[3])  
         return Instruction(opcode, line, 0, rt, rd, shamt=shamt)
 
-  #------------------------
   # I-type Instructions
-  #------------------------
-  
     # ADDI: rt = rs + immediate  
     if opcode == "ADDI":
         rt = parse_register(parts[1])
@@ -111,9 +98,7 @@ class Decoder:
       target = self.labels[label]
       return Instruction(opcode, line, rs, rt, target=target)
     
-  #------------------------
-  # R-type Instructions
-  #------------------------ 
+  # R-type Instruction
     if opcode == "J":
       label = parts[1]
       target = self.labels[label]

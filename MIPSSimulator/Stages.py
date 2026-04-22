@@ -4,8 +4,9 @@ Description: Defines the pipeline latches for the 5 stages of the MIPS pipeline
 Contributors: Samantha Hanna
 '''
 
-# from .Control import ControlSignals
-# from .Instructions import NOP
+from .Control import ControlSignals
+from .Instruction import NOP
+
 
 class IF_ID_Latch:
     def __init__(self):
@@ -14,7 +15,7 @@ class IF_ID_Latch:
     def reset(self):
         self.instruction = NOP
         self.pc = 0
-    
+
 
 class ID_EX_Latch:
     def __init__(self):
@@ -23,9 +24,10 @@ class ID_EX_Latch:
     def reset(self):
         self.instruction = NOP
         self.pc = 0
-        self.rs_value = 0
-        self.rt_value = 0
-        self.control_signals = ControlSignals()
+        self.reg_rs = 0
+        self.reg_rt = 0
+        self.control = ControlSignals()
+
 
 class EX_MEM_Latch:
     def __init__(self):
@@ -35,8 +37,10 @@ class EX_MEM_Latch:
         self.instruction = NOP
         self.pc = 0
         self.alu_result = 0
-        self.rt_value = 0
-        self.control_signals = ControlSignals()
+        self.zero_flag = False
+        self.reg_rt = 0
+        self.control = ControlSignals()
+
 
 class MEM_WB_Latch:
     def __init__(self):
@@ -47,4 +51,4 @@ class MEM_WB_Latch:
         self.pc = 0
         self.alu_result = 0
         self.mem_data = 0
-        self.control_signals = ControlSignals()
+        self.control = ControlSignals()
