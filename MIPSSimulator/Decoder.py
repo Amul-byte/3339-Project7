@@ -3,6 +3,8 @@ Decoder for MIPS assembly into Instruction objects.
 
 Reads an asm file, extracts labels, and converts each instruction into
 an Instruction object that the simulator is then able to execute.
+
+Contributor: Vanny Bundick
 """
 
 from .Instruction import Instruction, parse_register

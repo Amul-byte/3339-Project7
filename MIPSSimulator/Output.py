@@ -2,6 +2,8 @@
 Output formatting for MIPS simulator.
 
 Displays pipeline state and final results.
+
+Contributor: Vanny Bundick, Samantha Hanna
 """
 
 from .Instruction import REGISTER_ALIASES
