@@ -1,5 +1,7 @@
 """
-Instruction model and helpers for the MIPS simulator.
+Filename: MIPSSimulator/Instruction.py
+Description: Instruction model and helpers for the MIPS simulator.
+Contributor: Amul Poudel
 """
 
 from dataclasses import dataclass, replace

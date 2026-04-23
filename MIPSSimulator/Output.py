@@ -3,7 +3,7 @@ Output formatting for MIPS simulator.
 
 Displays pipeline state and final results.
 
-Contributor: Vanny Bundick, Samantha Hanna
+Contributor: Vanny Bundick, Samantha Hanna, Amul Poudel
 """
 
 from .Instruction import REGISTER_ALIASES
@@ -19,7 +19,7 @@ def print_cycle_state(pipeline):
 
     print("IF/ID :", pipeline.if_id.instruction.source)
     print("ID/EX :", pipeline.id_ex.instruction.source)
-    print("EX?MEM :", pipeline.ex_mem.instruction.source)
+    print("EX/MEM :", pipeline.ex_mem.instruction.source)
     print("MEM/WB :", pipeline.mem_wb.instruction.source)
 
     print("\nRegisters: ")
