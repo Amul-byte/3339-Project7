@@ -114,9 +114,10 @@ class Pipeline:
             value = self.mem_wb.mem_data if control.mem_to_reg else self.mem_wb.alu_result
             self.register_file.write(dest, value)
 
+    # step function: All four stages compute their next latch values simultaneously before any latch is overwritten
     def step(self, debug: bool = False):
         self.cycle += 1
-
+        
         next_if_id  = self.stage_IF()
         next_id_ex  = self.stage_ID()
         next_ex_mem = self.stage_EX()
@@ -129,7 +130,7 @@ class Pipeline:
         self.mem_wb = next_mem_wb
 
         if debug:
-            Debug.print_cycle_state(self)
+            Output.print_cycle_state(self)
 
     def run(self, debug: bool = False):
         while not self.is_done():

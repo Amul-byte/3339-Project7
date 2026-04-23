@@ -4,6 +4,10 @@ Description: Debug output for the MIPS pipeline simulator.
              Prints register file, state registers, and control signals each cycle.
 """
 
+from .Instruction import REGISTER_ALIASES
+
+_REGISTER_NAMES = {v: k for k, v in REGISTER_ALIASES.items()}
+
 def _print_controls(signals):
     fields = ["reg_dst", "alu_src", "mem_to_reg", "reg_write",
               "mem_read", "mem_write", "branch", "jump"]
@@ -26,6 +30,7 @@ def print_cycle_state(pipeline):
     print("\n-- Register File --")
     regs = pipeline.register_file.dump()
     for i in range(32):
-        print(f"  ${i:02}: {regs[i]:>10}", end=" ")
+        name = _REGISTER_NAMES.get(i, str(i))
+        print(f"  ${name:<4}(${i:02}): {regs[i]:>10}", end=" ")
         if (i + 1) % 4 == 0:
             print()

@@ -4,6 +4,10 @@ Output formatting for MIPS simulator.
 Displays pipeline state and final results.
 """
 
+from .Instruction import REGISTER_ALIASES
+
+_REGISTER_NAMES = {v: k for k, v in REGISTER_ALIASES.items()}
+
 def print_cycle_state(pipeline):
     """
     Prints pipeline state for current cycle and shows which
@@ -21,8 +25,9 @@ def print_cycle_state(pipeline):
     regs = pipeline.register_file.dump()                # Dump register values
 
     for i in range(32):
-        print(f"${i:02}: {regs[i]:>10}", end=" ")
-        if(i + 1) % 4 == 0:
+        name = _REGISTER_NAMES.get(i, str(i))
+        print(f"  ${name:<4}(${i:02}): {regs[i]:>10}", end=" ")
+        if (i + 1) % 4 == 0:
             print()
 
     
@@ -33,8 +38,9 @@ def print_final_state(pipeline):
     print("\n-----Final Register State-----")
     regs = pipeline.register_file.dump()
     for i in range(32):
-        print(f"${i:02}: {regs[i]:>10}", end=" ")
-        if(i + 1) % 4 == 0:
+        name = _REGISTER_NAMES.get(i, str(i))
+        print(f"  ${name:<4}(${i:02}): {regs[i]:>10}", end=" ")
+        if (i + 1) % 4 == 0:
             print()
     
     print("\n-----Final Memory State-----")

@@ -1,7 +1,8 @@
 '''
 Filename: MIPSSimulator/Stages.py
-Description: Defines the pipeline latches for the 5 stages of the MIPS pipeline
-Contributors: Samantha Hanna
+Description: Defines the pipeline latches (state registers) for the 5 stages of the MIPS pipeline
+- Every stage reads from the old latch and writes to a new one
+- Nothing is overwritten until every stage has finished reading
 '''
 
 from .Control import ControlSignals
