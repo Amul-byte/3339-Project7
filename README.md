@@ -31,6 +31,8 @@ Proposed File Structure:
 
 —README.md                # build and run instructions
 
+To Execute: Python main.py (asm file name or path/to/asmfile)
+
 ### Contributions
 Samantha Hanna:
 - ALU.py
