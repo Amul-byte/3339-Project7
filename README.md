@@ -1,36 +1,35 @@
 # 3339-Project7
 
-Proposed File Structure:
+## Proposed File Structure:
 
-3339-Project7
+main.py - Parses CLI args; starting point
 
-— main.py                  # Parses CLI args; starting point
-
-—MIPSSimulator
+MIPSSimulator
 
     __init__.py
 
-    —Instruction.py       # Instruction class + binary string representation
-    —Decoder.py           # reads .asm file, parses into Instruction objects
+    — Instruction.py - Instruction class + binary string representation
+    — Decoder.py - reads .asm file, parses into Instruction objects
+    — RegisterFile.py - RegisterFile class
+    — Memory.py - Memory class
 
-    —RegisterFile.py      # RegisterFile class
-    —Memory.py            # Memory class
+    — ALU.py - ALU class
+    — Control.py - ControlSignals class + signal generation logic
+    — Stages.py - IF_ID, ID_EX, EX_MEM, MEM_WB MIPS stages
+    — Pipeline.py - Pipeline class — step(), run(), dump(), debug()
 
-    —ALU.py               # ALU class
-    —Control.py           # ControlSignals class + signal generation logic
-    —Stages.py            # IF_ID, ID_EX, EX_MEM, MEM_WB MIPS stages
-    —Pipeline.py          # Pipeline class — step(), run(), dump(), debug()
-
-    —Output.py            # all formatting logic for dump and debug mode
+    — Output.py - all formatting logic for dump and debug mode
 
 tests
 
     — `TestInstructionsFull.asm` - demo program using every instruction
-    — `TestInstructionsFull2.asm` - another demo program using every instruction
+    — `TestInstructionsFull2.asm` - another demo program using every instruction *RUN THIS ONE*
     — `TestArithmetic.asm` - focused arithmetic test
     — `TestMemory.asm` - focused LW/SW test
 
-—README.md                # build and run instructions
+README.md - build and run instructions
+
+MIPS Simulator Presentation - Group 7 (1).pptx - presentation slides
 
 ## How to execute
 python main.py --*flag*
@@ -40,7 +39,7 @@ python main.py --*flag*
 --binary: Prints binary fields of the assembly program before execution
 --debug: Prints pipeline state after each cycle
 
-### Contributions
+## Contributions
 Samantha Hanna:
 - Control.py
 - Stages.py
