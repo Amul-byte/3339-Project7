@@ -1,6 +1,8 @@
 """
-Entry point for the MIPS pipeline simulator.
+Filename: main.py
+Description: Entry point for the MIPS pipeline simulator.
 Usage: python main.py <file.asm> [--hex] [--binary] [--debug]
+Contributors: Samantha Hanna
 """
 
 import argparse
@@ -46,7 +48,6 @@ def main():
 
     pipeline = Pipeline(instructions)
     pipeline.run(debug=args.debug)
-
 
 if __name__ == "__main__":
     main()
