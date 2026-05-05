@@ -34,4 +34,6 @@ end:
 # Expected memory state:
 #   mem[0] = 15
 
-# Why NOPs are used after ADDI $t2, $zero, 5": 
+# Why NOPs are used after ADDI $t2, $zero, 5": The 2 NOPs give the ADDI
+# instruction a delay of at least one cycle so it can complete WB
+# before the next instruction is executed
