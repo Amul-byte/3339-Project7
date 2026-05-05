@@ -100,7 +100,7 @@ class Decoder:
       target = self.labels[label]
       return Instruction(opcode, line, rs, rt, target=target)
     
-  # R-type Instruction
+  # J-type Instruction
     if opcode == "J":
       label = parts[1]
       target = self.labels[label]
