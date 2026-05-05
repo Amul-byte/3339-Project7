@@ -42,6 +42,8 @@ python main.py --*flag* *file.asm*
 
 --debug - Prints pipeline state after each cycle
 
+Example: python main.py --debug TestInstructionsFullMain.asm
+
 ## Contributions
 Samantha Hanna:
 - Control.py
