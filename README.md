@@ -32,12 +32,13 @@ README.md - build and run instructions
 MIPS Simulator Presentation - Group 7 (1).pptx - presentation slides
 
 ## How to execute
-python main.py --*flag*
-* flag options: 
--h: Help menu
---hex: Prints hex representation of the assembly program before execution
---binary: Prints binary fields of the assembly program before execution
---debug: Prints pipeline state after each cycle
+python main.py --*flag* *file.asm*
+* flag options:
+
+    -h: Help menu
+    --hex: Prints hex representation of the assembly program before execution
+    --binary: Prints binary fields of the assembly program before execution
+    --debug: Prints pipeline state after each cycle
 
 ## Contributions
 Samantha Hanna:
