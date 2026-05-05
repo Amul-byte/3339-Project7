@@ -24,8 +24,6 @@ tests
 
     — TestInstructionsFullMain.asm - demo program using every instruction *RUN THIS TEST*
     — TestInstructionsFull.asm - another demo program using every instruction
-    — TestArithmetic.asm - focused arithmetic test
-    — TestMemory.asm - focused LW/SW test
 
 README.md - build and run instructions
 
