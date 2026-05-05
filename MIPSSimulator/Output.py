@@ -51,4 +51,4 @@ def print_final_state(pipeline):
         print("(empty)")
     else:
         for addr, val in memory.items():
-            print(f"{addr:08x}: {val}")
+            print(f"  mem[{addr}]  (0x{addr:08x}): {val}")
