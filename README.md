@@ -24,6 +24,7 @@ Proposed File Structure:
     —Output.py            # all formatting logic for dump and debug mode
 
 tests
+
     — `TestInstructionsFull.asm` - demo program using every instruction
     — `TestInstructionsFull2.asm` - another demo program using every instruction
     — `TestArithmetic.asm` - focused arithmetic test
