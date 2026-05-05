@@ -19,6 +19,7 @@ MIPSSimulator
     — Pipeline.py - Pipeline class — step(), run(), dump(), debug()
 
     — Output.py - all formatting logic for dump and debug mode
+    - Debug.py - prints state registers, control signals, state register data values, PC, and register files for each cycle
 
 tests
 
