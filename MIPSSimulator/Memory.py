@@ -1,7 +1,8 @@
 """
-Sparse word-addressable memory for the MIPS simulator.
+Filename: MIPSSimulator/Memory.py
+Description: Sparse word-addressable memory for the MIPS simulator.
+Contributors: Amul Poudel
 """
-
 
 class Memory:
     def __init__(self) -> None:

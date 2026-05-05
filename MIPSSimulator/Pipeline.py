@@ -99,6 +99,7 @@ class Pipeline:
             self.pc = instr.target
 
         next_latch.instruction = instr
+        next_latch.pc = self.ex_mem.pc
         next_latch.alu_result = alu_result
         next_latch.mem_data = mem_data
         next_latch.control = control
@@ -130,7 +131,7 @@ class Pipeline:
         self.mem_wb = next_mem_wb
 
         if debug:
-            Output.print_cycle_state(self)
+            Debug.print_cycle_state(self)
 
     def run(self, debug: bool = False):
         while not self.is_done():

@@ -17,7 +17,6 @@ class ControlSignals:
         self.branch     = branch
         self.jump       = jump
 
-
 def generate(opcode: str) -> ControlSignals:
     if opcode in {"ADD", "SUB", "MUL", "AND", "OR", "SLL", "SRL"}:
         return ControlSignals(reg_dst=True, reg_write=True)

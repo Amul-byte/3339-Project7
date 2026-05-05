@@ -9,7 +9,6 @@ Contributor: Samantha Hanna
 from .Control import ControlSignals
 from .Instruction import NOP
 
-
 class IF_ID_Latch:
     def __init__(self):
         self.reset()
@@ -17,7 +16,6 @@ class IF_ID_Latch:
     def reset(self):
         self.instruction = NOP
         self.pc = 0
-
 
 class ID_EX_Latch:
     def __init__(self):
@@ -30,7 +28,6 @@ class ID_EX_Latch:
         self.reg_rt = 0
         self.control = ControlSignals()
 
-
 class EX_MEM_Latch:
     def __init__(self):
         self.reset()
@@ -42,7 +39,6 @@ class EX_MEM_Latch:
         self.zero_flag = False
         self.reg_rt = 0
         self.control = ControlSignals()
-
 
 class MEM_WB_Latch:
     def __init__(self):

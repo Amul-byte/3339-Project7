@@ -6,7 +6,6 @@ Contributor: Amul Poudel
 
 from dataclasses import dataclass, replace
 
-
 REGISTER_ALIASES = {
     "zero": 0,
     "at": 1,
@@ -61,7 +60,6 @@ I_TYPE_OPCODES = {
 
 J_TYPE_OPCODES = {"J": 0x02}
 
-
 @dataclass(frozen=True, slots=True)
 class Instruction:
     opcode: str
@@ -81,9 +79,7 @@ class Instruction:
     def with_address(self, address: int) -> "Instruction":
         return replace(self, address=address)
 
-
 NOP = Instruction(opcode="NOP", source="NOP")
-
 
 def parse_register(token: str) -> int:
     value = token.strip().rstrip(",")
@@ -102,10 +98,8 @@ def parse_register(token: str) -> int:
 
     raise ValueError(f"Unknown register: {token}")
 
-
 def _bits(value: int, width: int) -> str:
     return format(value & ((1 << width) - 1), f"0{width}b")
-
 
 def encode_binary(instruction: Instruction) -> str:
     opcode = instruction.opcode

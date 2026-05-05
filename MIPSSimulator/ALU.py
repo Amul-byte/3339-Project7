@@ -4,15 +4,12 @@ Description: ALU implementation for the MIPS pipeline simulator.
 Contributor: Amul Poudel
 """
 
-
 def _mask32(value: int) -> int:
     return value & 0xFFFFFFFF
-
 
 def _to_signed32(value: int) -> int:
     value = _mask32(value)
     return value if value < 0x80000000 else value - 0x100000000
-
 
 class ALU:
     def execute(self, alu_op: str, operand1: int, operand2: int, shamt: int = 0) -> tuple[int, bool]:
@@ -31,7 +28,7 @@ class ALU:
         elif alu_op == "SRL":
             result = _mask32(operand2) >> shamt
         elif alu_op == "BEQ":
-            result = _to_signed32(operand1) - _to_signed32(operand2)
+            result = _to_signed32(operand1) - _to_signed32(operand2)    # if result == 0, then PC will be updated to branch target
         elif alu_op in {"J", "NOP"}:
             result = 0
         else:

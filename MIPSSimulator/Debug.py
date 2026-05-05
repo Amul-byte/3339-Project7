@@ -14,10 +14,20 @@ def _print_controls(signals):
               "mem_read", "mem_write", "branch", "jump"]
     print("    " + "  ".join(f"{f}={int(getattr(signals, f))}" for f in fields))
 
+# Prints content of pipeline latches and register file for current cycle
 def _print_latch(name, latch, show_controls=True):
     print(f"  {name}: [{latch.instruction.source}]")
     if show_controls:
         _print_controls(latch.control)
+        if hasattr(latch, 'reg_rs'):
+            print(f"    reg_rs={latch.reg_rs}  reg_rt={latch.reg_rt}")
+        if hasattr(latch, 'alu_result'):
+            print(f"    alu_result={latch.alu_result}", end="")
+            if hasattr(latch, 'zero_flag'):
+                print(f"  zero_flag={int(latch.zero_flag)}", end="")
+            if hasattr(latch, 'mem_data'):
+                print(f"  mem_data={latch.mem_data}", end="")
+            print()
 
 def print_cycle_state(pipeline):
     print(f"\n===== Cycle {pipeline.cycle} =====")
@@ -27,6 +37,7 @@ def print_cycle_state(pipeline):
     _print_latch("ID/EX ", pipeline.id_ex)
     _print_latch("EX/MEM", pipeline.ex_mem)
     _print_latch("MEM/WB", pipeline.mem_wb)
+    print(f"\n  PC = {pipeline.pc}")
 
     print("\n-- Register File --")
     regs = pipeline.register_file.dump()
